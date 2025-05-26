@@ -348,7 +348,7 @@ button.next {
 /* === MOBILE FIXES FOR 768PX AND BELOW === */
 @media screen and (max-width: 768px) {
 
-  /* Prevent page from zooming or scaling on mobile */
+  /* Prevent zoom & horizontal scroll */
   html, body {
     overflow-x: hidden;
     touch-action: pan-y;
@@ -358,7 +358,7 @@ button.next {
     zoom: 1;
   }
 
-  /* Fix navbar layout */
+  /* === Navbar Fix === */
   .navbar {
     height: 60px;
     display: flex;
@@ -372,6 +372,7 @@ button.next {
   }
 
   .hamburger {
+    display: block;
     position: absolute;
     left: 15px;
     top: 16px;
@@ -380,6 +381,7 @@ button.next {
     color: white;
     font-size: 28px;
     z-index: 1001;
+    cursor: pointer;
   }
 
   .nav-logo {
@@ -417,12 +419,32 @@ button.next {
     text-decoration: none;
   }
 
-  /* Horizontal scrollable gallery */
+  /* === Section Fix === */
+  #home,
+  #about,
+  #objectives,
+  #gallery,
+  #documentation,
+  #team {
+    height: auto;
+    min-height: 100vh;
+    padding-top: 100px;
+    padding-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+  }
+
+  /* === Gallery Fix === */
   .gallery-wrapper {
     width: 100%;
     overflow: hidden;
-    box-sizing: border-box;
     padding: 0;
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -437,6 +459,7 @@ button.next {
     -webkit-overflow-scrolling: touch;
     gap: 20px;
     width: 100%;
+    padding: 0 10px;
   }
 
   .gallery-item {
@@ -461,6 +484,8 @@ button.next {
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
+    background: rgba(0,0,0,0.6);
+    border-radius: 5px;
   }
 
   .prev {
@@ -471,25 +496,7 @@ button.next {
     right: 10px;
   }
 
-  #home,
-  #about,
-  #objectives,
-  #gallery,
-  #documentation,
-  #team {
-    height: auto;
-    min-height: 100vh;
-    padding-top: 100px;
-    padding-bottom: 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    max-width: 100vw;
-    box-sizing: border-box;
-  }
-
+  /* === Card Fixes === */
   .team-card,
   .folder,
   .card {
