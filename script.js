@@ -22,9 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.getElementById('hamburger');
   const mobileNav = document.getElementById('nav-links');
 
-  hamburger.addEventListener('click', () => {
-    mobileNav.classList.toggle('show');
-  });
+  if (hamburger && mobileNav) {
+    hamburger.addEventListener('click', () => {
+      mobileNav.classList.toggle('show');
+    });
+  }
 
   // Gallery scroll logic
   const slider = document.querySelector('.gallery-slider');
