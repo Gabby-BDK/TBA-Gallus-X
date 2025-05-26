@@ -18,16 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Hamburger menu toggle
-  const hamburger = document.getElementById('hamburger');
-  const mobileNav = document.getElementById('nav-links');
-
-  if (hamburger && mobileNav) {
-    hamburger.addEventListener('click', () => {
-      mobileNav.classList.toggle('show');
-    });
-  }
-
   // Gallery scroll logic
   const slider = document.querySelector('.gallery-slider');
   const images = document.querySelectorAll('.gallery-slider img');
