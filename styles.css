@@ -357,11 +357,19 @@ button.next {
     font-size: 28px;
     position: absolute;
     left: 20px;
-    top: 12px;
+    top: 16px;
     z-index: 1001;
   }
 
   /* === Centered Logo in Mobile === */
+  .navbar {
+  height: 60px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+
   .nav-logo {
     position: absolute;
     left: 50%;
@@ -369,6 +377,8 @@ button.next {
     display: flex;
     align-items: center;
     gap: 10px;
+    max-width: 60%;
+    justify-content: center;
   }
 
   /* === Slide-down Nav Menu === */
@@ -398,15 +408,30 @@ button.next {
 
   /* === Gallery Button Alignment Fix === */
   .gallery-wrapper {
+    width: 100%;
     flex-direction: row;
     position: relative;
     justify-content: center;
     align-items: center;
     gap: 0;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    max-height: 60vh;
+    object-fit: contain;
+    border-radius: 10px;
   }
 
   .gallery-slider {
     width: 100%;
+    overflow: auto;
+    scroll-snap-type: x mandatory; 
+    display: flex;
+    gap: 20px;
   }
 
   .prev,
