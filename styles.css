@@ -333,4 +333,99 @@ button.next {
   transform: scale(1.2);
 }
 
+/* ===== MOBILE RESPONSIVE STYLES ===== */
+@media screen and (max-width: 768px) {
 
+  /* Navbar becomes stacked */
+  .navbar {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  /* Section layout becomes vertical */
+  #home,
+  #about,
+  #objectives,
+  #gallery,
+  #documentation,
+  #team {
+    height: auto;
+    padding: 60px 15px;
+    flex-direction: column;
+  }
+
+  .container {
+    width: 95%;
+    padding: 0 10px;
+  }
+
+  /* Product video shrinks */
+  #home .product-video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Team cards stack */
+  .team-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .team-card {
+    width: 90%;
+  }
+
+  /* Objective section stacks vertically */
+  .objectives-columns {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .objective-column {
+    width: 100%;
+  }
+
+  /* Gallery buttons & slider */
+  .gallery-wrapper {
+    flex-direction: column;
+  }
+
+  .gallery-slider {
+    width: 100%;
+    gap: 20px;
+  }
+
+  .gallery-item {
+    flex: 0 0 100%;
+  }
+
+  .gallery-item img {
+    max-height: 60vh;
+    width: 100%;
+  }
+
+  button.prev,
+  button.next {
+    font-size: 18px;
+    padding: 8px;
+    margin: 5px 0;
+  }
+
+  /* Documentation folders stack */
+  .folders {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .folder {
+    width: 90%;
+  }
+}
