@@ -347,41 +347,40 @@ button.next {
 }
 
 @media screen and (max-width: 768px) {
+  /* === Navbar Fix === */
+  .navbar {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(196, 141, 103, 0.95);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+  }
 
-  /* === Hamburger Button === */
   .hamburger {
     display: block;
+    position: absolute;
+    left: 15px;
+    top: 16px;
     background: none;
     border: none;
     color: white;
     font-size: 28px;
-    position: absolute;
-    left: 20px;
-    top: 16px;
     z-index: 1001;
   }
 
-  /* === Centered Logo in Mobile === */
-  .navbar {
-  height: 60px;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-
   .nav-logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    margin: 0 auto;
     display: flex;
     align-items: center;
-    gap: 10px;
-    max-width: 60%;
     justify-content: center;
+    gap: 10px;
+    position: relative;
   }
 
-  /* === Slide-down Nav Menu === */
   .nav-links {
     display: none;
     position: absolute;
@@ -406,16 +405,32 @@ button.next {
     text-decoration: none;
   }
 
-  /* === Gallery Button Alignment Fix === */
+  /* === Gallery Layout Fix === */
   .gallery-wrapper {
     width: 100%;
-    flex-direction: row;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    gap: 0;
     padding: 0 10px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .gallery-slider {
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    display: flex;
+    gap: 20px;
+  }
+
+  .gallery-item {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .gallery-item img {
@@ -424,14 +439,6 @@ button.next {
     max-height: 60vh;
     object-fit: contain;
     border-radius: 10px;
-  }
-
-  .gallery-slider {
-    width: 100%;
-    overflow: auto;
-    scroll-snap-type: x mandatory; 
-    display: flex;
-    gap: 20px;
   }
 
   .prev,
@@ -450,7 +457,7 @@ button.next {
     right: 10px;
   }
 
-  /* === Section Overlap Fix (due to fixed navbar) === */
+  /* === Section Padding Fix === */
   #home,
   #about,
   #objectives,
@@ -461,11 +468,18 @@ button.next {
     min-height: 100vh;
     padding-top: 100px;
     padding-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
-  /* === Team / Docs card spacing fix === */
+  /* === Card Spacing === */
   .team-card,
   .folder {
     margin-bottom: 20px;
+    width: 90%;
+    max-width: 300px;
   }
 }
+
