@@ -89,16 +89,26 @@ body {
 }
 
 /* HOME section image, title, and description */
-#home .product-video {
-  width: 750px;
-  filter:brightness(100%);
-  margin-bottom: 10px;
+#home .video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 750px;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto 10px auto;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  overflow: hidden;
 }
+
+#home .youtube-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 
 #home .product-title {
   font-size: 2rem;
@@ -332,13 +342,13 @@ button.next {
 .social-links img:hover {
   transform: scale(1.2);
 }
-
-/* === Hamburger Menu Mobile Only === */
 .hamburger {
-  display: none;
+  display: none !important;
 }
 
 @media screen and (max-width: 768px) {
+
+  /* === Hamburger Button === */
   .hamburger {
     display: block;
     background: none;
@@ -351,18 +361,24 @@ button.next {
     z-index: 1001;
   }
 
+  /* === Centered Logo in Mobile === */
   .nav-logo {
-    margin: 0 auto;
-    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
 
+  /* === Slide-down Nav Menu === */
   .nav-links {
     display: none;
     position: absolute;
     top: 60px;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.95);
     flex-direction: column;
     align-items: center;
     gap: 15px;
@@ -380,7 +396,7 @@ button.next {
     text-decoration: none;
   }
 
-  /* Fix Gallery Buttons (left and right alignment) */
+  /* === Gallery Button Alignment Fix === */
   .gallery-wrapper {
     flex-direction: row;
     position: relative;
@@ -408,5 +424,23 @@ button.next {
   .next {
     right: 10px;
   }
-}
 
+  /* === Section Overlap Fix (due to fixed navbar) === */
+  #home,
+  #about,
+  #objectives,
+  #gallery,
+  #documentation,
+  #team {
+    height: auto;
+    min-height: 100vh;
+    padding-top: 100px;
+    padding-bottom: 60px;
+  }
+
+  /* === Team / Docs card spacing fix === */
+  .team-card,
+  .folder {
+    margin-bottom: 20px;
+  }
+}

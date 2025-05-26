@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Smooth scroll for nav links
-  document.querySelectorAll('.nav-links a').forEach(link => {
+  const navLinks = document.querySelectorAll('.nav-links a');
+  navLinks.forEach(link => {
     link.addEventListener('click', function (e) {
       e.preventDefault();
       const targetId = this.getAttribute('href');
@@ -8,16 +9,22 @@ document.addEventListener('DOMContentLoaded', () => {
       if (target) {
         target.scrollIntoView({ behavior: 'smooth' });
       }
+
+      // Close mobile menu if open
+      const nav = document.getElementById('nav-links');
+      if (nav.classList.contains('show')) {
+        nav.classList.remove('show');
+      }
     });
   });
 
   // Hamburger menu toggle
   const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
+  const mobileNav = document.getElementById('nav-links');
 
   hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
-  });;
+    mobileNav.classList.toggle('show');
+  });
 
   // Gallery scroll logic
   const slider = document.querySelector('.gallery-slider');
@@ -36,17 +43,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  nextBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    e.target.blur();
-    currentIndex = (currentIndex + 1) % images.length;
-    scrollToImage(currentIndex);
-  });
+  if (nextBtn && prevBtn && images.length > 0) {
+    nextBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.target.blur();
+      currentIndex = (currentIndex + 1) % images.length;
+      scrollToImage(currentIndex);
+    });
 
-  prevBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    e.target.blur();
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    scrollToImage(currentIndex);
-  });
+    prevBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.target.blur();
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      scrollToImage(currentIndex);
+    });
+  }
 });
