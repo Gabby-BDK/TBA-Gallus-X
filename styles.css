@@ -195,6 +195,7 @@ body {
 }
 
 /* Gallery */
+/* === Gallery Section (Responsive & Clean Fit) === */
 .gallery-wrapper {
   display: flex;
   justify-content: center;
@@ -202,17 +203,20 @@ body {
   overflow: hidden;
   gap: 10px;
   margin: 0 auto;
+  padding: 20px;
+  max-height: 80vh; /* limit total gallery height */
+  box-sizing: border-box;
 }
 
 .gallery-slider {
   display: flex;
-  overflow-x: scroll;
+  overflow-x: auto;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
-  gap: 40px;
-  width: 90%;
+  gap: 30px;
   max-width: 1000px;
-  padding: 20px 0;
+  padding: 10px;
+  width: 100%;
 }
 
 .gallery-item {
@@ -224,14 +228,16 @@ body {
 }
 
 .gallery-item img {
-  max-width: 100%;
-  max-height: 90vh;
-  width: auto;
   height: auto;
+  max-height: 70vh; /* prevents touching bottom of screen */
+  width: auto;
+  max-width: 100%;
   object-fit: contain;
   border-radius: 10px;
   background: none;
+  box-shadow: 0 0 8px rgba(0,0,0,0.5);
 }
+
 
 
 button.prev,
